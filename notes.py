@@ -36,8 +36,9 @@ def search_notes(notes_list, keyword):
     
     for note in notes_list:
         if (keyword.lower() in note ["title"].lower()
-            or keyword.lower() in note["content"].lower()
-                or keyword.lower in note["subject"].lower()):
+        or keyword.lower() in note["content"].lower()
+        or keyword.lower() in note["subject"].lower()):
+            
             print("---------------------------")
             print("Title:", note["title"])
             print("Content:", note["content"])

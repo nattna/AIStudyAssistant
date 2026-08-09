@@ -1,8 +1,9 @@
 import notes
+import storage
 
 print ("Welcome to my AI Study Assistant!")
 
-notes_list = []
+notes_list = storage.load_notes()
 
 my_note = notes.create_note(
     "Python Variables",
@@ -25,6 +26,8 @@ my_note3 = notes.create_note(
 notes.add_note(notes_list, my_note)
 notes.add_note(notes_list, my_note2)
 notes.add_note(notes_list, my_note3)
+
+storage.save_notes(notes_list)
 
 notes.display_notes(notes_list)
 

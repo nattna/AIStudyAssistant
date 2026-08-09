@@ -1,0 +1,32 @@
+[
+    {
+        "title": "Python Variables",
+        "content": "Variables store information.",
+        "subject": "Programming"
+    },
+    {
+        "title": "Generative AI",
+        "content": "Relies on deep learning algorithms.",
+        "subject": "AI"
+    },
+    {
+        "title": "Functions",
+        "content": "A function is a relation from one set to another.",
+        "subject": "Mathematics"
+    },
+    {
+        "title": "Python Variables",
+        "content": "Variables store information.",
+        "subject": "Programming"
+    },
+    {
+        "title": "Generative AI",
+        "content": "Relies on deep learning algorithms.",
+        "subject": "AI"
+    },
+    {
+        "title": "Functions",
+        "content": "A function is a relation from one set to another.",
+        "subject": "Mathematics"
+    }
+]
