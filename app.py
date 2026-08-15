@@ -12,32 +12,36 @@ while True:
     print("3. Search Notes")
     print("4. Exit")
     
-    choice = input("Choose and option: ")\
+    choice = input("Choose an option: ")\
+    
+    if choice == "1":
+        title = input("Enter the note title: ")
+        content = input("Enter the note content: ")
+        subject = input("Enter the subject: ")
 
-    if choice == 4:
+        new_note = notes.create_note(
+            title,
+            content,
+            subject
+        )
+
+        notes.add_note(notes_list, new_note)
+
+        storage.save_notes(notes_list)
+
+        print("Your note has been saved successfully!")
+
+    elif choice == "2":
+        notes.display_notes(notes_list)
+
+    elif choice == "3":
+        keyword = input("Enter a keyword to search for: ")
+        notes.search_notes(notes_list, keyword)
+        
+    elif choice == "4":
         break
-    
-    print("You chose: ", choice)
-    
-title = input("Enter the note title: ")
-content = input("Enter the note content: ")
-subject = input("Enter the subject: ")
 
-new_note = notes.create_note(
-    title,
-    content,
-    subject
-)
-
-notes.add_note(notes_list, new_note)
-
-storage.save_notes(notes_list)
-
-print("Your note has been saved successfully!")
-
-notes.display_notes(notes_list)
-
-print("\nSearching for Python...\n")
-
-notes.search_notes(notes_list, "Python")
-
+    else:
+        print("Invalid option. Please choose 1, 2, 3 or 4.")
+        
+print("Goodbye, have a good day!")
