@@ -33,6 +33,7 @@ def search_notes(notes_list, keyword):
     """
     Searches for a keyword in the note titles.
     """
+    found = False
     
     for note in notes_list:
         if (keyword.lower() in note ["title"].lower()
@@ -44,3 +45,8 @@ def search_notes(notes_list, keyword):
             print("Content:", note["content"])
             print("Subject:", note["subject"])
             print("---------------------------")
+            
+            found = True
+            
+    if not found:
+        print("No notes found.")

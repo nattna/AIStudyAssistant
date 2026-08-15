@@ -35,7 +35,7 @@ while True:
         notes.display_notes(notes_list)
 
     elif choice == "3":
-        keyword = input("Enter a keyword to search for: ")
+        keyword = input("Enter a word to search for: ")
         notes.search_notes(notes_list, keyword)
         
     elif choice == "4":
