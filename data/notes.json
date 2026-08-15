@@ -23,10 +23,5 @@
         "title": "Introduction to Matrices",
         "content": "A matrix is a 2d array or numbers arranges in rows and columns.",
         "subject": "Mathematics"
-    },
-    {
-        "title": "Python Functions",
-        "content": "Python functions are reuseable blocks of code used to perform a specific task.",
-        "subject": "Python"
     }
 ]

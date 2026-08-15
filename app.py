@@ -10,7 +10,8 @@ while True:
     print("1. Add Note")
     print("2. View Notes")
     print("3. Search Notes")
-    print("4. Exit")
+    print("4. Delete Note")
+    print("5. Exit")
     
     choice = input("Choose an option: ")\
     
@@ -39,6 +40,23 @@ while True:
         notes.search_notes(notes_list, keyword)
         
     elif choice == "4":
+        notes.display_notes(notes_list)
+        
+        if len(notes_list) == 0:
+            print("There are no notes to delete.")
+            continue
+        
+        note_number = int(input("Enter the number of the note you want to delete: "))
+        
+        index = note_number - 1
+        
+        if notes.delete_note(notes_list, index):
+            storage.save_notes(notes_list)
+            print("Note deleted successfully!")
+        else:
+            print("Invalid note number.")
+    
+    elif choice == "5":
         break
 
     else:
