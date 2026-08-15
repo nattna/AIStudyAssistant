@@ -1,14 +1,13 @@
 import json
+import os
 
 def load_notes():
     """
     Loads existing notes from a JSON file
     """
-    
-    with open("data/notes.json", "r") as file:
-        notes_list = json.load(file)
-    
-    return notes_list
+    if os.path.exists("data/notes.json"):
+        with open("data/notes.json", "r") as file:
+            return json.load(file)
 
 def save_notes(notes_list):
     """

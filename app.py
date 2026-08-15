@@ -5,29 +5,35 @@ print ("Welcome to my AI Study Assistant!")
 
 notes_list = storage.load_notes()
 
-my_note = notes.create_note(
-    "Python Variables",
-    "Variables store information.",
-    "Programming"
+while True:
+    print("\n===== AI STUDY ASSISTANT =====")
+    print("1. Add Note")
+    print("2. View Notes")
+    print("3. Search Notes")
+    print("4. Exit")
+    
+    choice = input("Choose and option: ")\
+
+    if choice == 4:
+        break
+    
+    print("You chose: ", choice)
+    
+title = input("Enter the note title: ")
+content = input("Enter the note content: ")
+subject = input("Enter the subject: ")
+
+new_note = notes.create_note(
+    title,
+    content,
+    subject
 )
 
-my_note2 = notes.create_note(
-    "Generative AI", 
-    "Relies on deep learning algorithms.",
-    "AI"
-)
-
-my_note3 = notes.create_note(
-    "Functions",
-    "A function is a relation from one set to another.",
-    "Mathematics"
-)
-
-notes.add_note(notes_list, my_note)
-notes.add_note(notes_list, my_note2)
-notes.add_note(notes_list, my_note3)
+notes.add_note(notes_list, new_note)
 
 storage.save_notes(notes_list)
+
+print("Your note has been saved successfully!")
 
 notes.display_notes(notes_list)
 

@@ -15,18 +15,18 @@
         "subject": "Mathematics"
     },
     {
-        "title": "Python Variables",
-        "content": "Variables store information.",
-        "subject": "Programming"
-    },
-    {
-        "title": "Generative AI",
-        "content": "Relies on deep learning algorithms.",
+        "title": "Neutral Networks",
+        "content": "Neutral networks are insipred by the structure of the brain.",
         "subject": "AI"
     },
     {
-        "title": "Functions",
-        "content": "A function is a relation from one set to another.",
+        "title": "Introduction to Matrices",
+        "content": "A matrix is a 2d array or numbers arranges in rows and columns.",
         "subject": "Mathematics"
+    },
+    {
+        "title": "Python Functions",
+        "content": "Python functions are reuseable blocks of code used to perform a specific task.",
+        "subject": "Python"
     }
 ]
