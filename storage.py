@@ -8,6 +8,8 @@ def load_notes():
     if os.path.exists("data/notes.json"):
         with open("data/notes.json", "r") as file:
             return json.load(file)
+    
+    return []
 
 def save_notes(notes_list):
     """
