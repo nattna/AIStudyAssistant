@@ -11,7 +11,8 @@ while True:
     print("2. View Notes")
     print("3. Search Notes")
     print("4. Delete Note")
-    print("5. Exit")
+    print("5. Edit Note")
+    print("6. Exit")
     
     choice = input("Choose an option: ")\
     
@@ -67,6 +68,53 @@ while True:
             print("Please enter a number.")
     
     elif choice == "5":
+        notes.display_notes(notes_list)
+        
+        if len(notes_list) == 0:
+            print("There are no notes to edit.")
+            continue
+        
+        try:
+            note_number = int(input("Enter the number of the note you want to edit: "))
+            
+            index = note_number - 1
+            
+            if 0 <= index < len(notes_list):
+                
+                current_note = notes_list[index]
+                
+                print("\nPress Enter to keep the current value.")
+                
+                title = input(
+                    f"Current title: {current_note['title']}\n"
+                    "New title:"
+                )
+                
+                content = input(
+                    f"Current concent: {current_note['content']}\n"
+                    "New content:"
+                )
+                
+                subject = input(
+                    f"Current subject: {current_note['subject']}\n"
+                    "New subject:"
+                )
+                
+                if notes.edit_note(
+                    notes_list,
+                    index,
+                    title,
+                    content,
+                    subject
+                ):
+                    storage.save_notes(notes_list)
+                    print("Note updated successfully!")
+            else:
+                print("Invalid note number.")
+        except ValueError:
+            print("Please enter a number.")
+            
+    elif choice == "6":
         break
 
     else:

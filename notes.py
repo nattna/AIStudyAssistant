@@ -61,3 +61,19 @@ def delete_note(notes_list, index):
         return True
     
     return False
+
+def edit_note(notes_list, index, title, content, subject):
+    """
+    Edits an existing note.    
+    """
+    
+    if 0 <= index < len(notes_list):
+        if title != "":
+            notes_list[index]["title"] =  title
+        if content != "":
+            notes_list[index]["content"] = content
+        if subject != "":
+            notes_list[index]["subject"] = subject
+        return True
+    
+    return False
