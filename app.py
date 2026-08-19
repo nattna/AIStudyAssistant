@@ -46,15 +46,25 @@ while True:
             print("There are no notes to delete.")
             continue
         
-        note_number = int(input("Enter the number of the note you want to delete: "))
-        
-        index = note_number - 1
-        
-        if notes.delete_note(notes_list, index):
-            storage.save_notes(notes_list)
-            print("Note deleted successfully!")
-        else:
-            print("Invalid note number.")
+        try:
+            note_number = int(input("Enter the number of the note you want to delete: "))
+            
+            index = note_number - 1
+            
+            if 0 <= index < len(notes_list):
+                confirmation = input("Are you sure you want to delete this note? (y/n): ")
+                
+                if confirmation.lower()  in ["y", "yes"]:
+                    notes.delete_note(notes_list, index)
+                    storage.save_notes(notes_list)
+                    print("Note deleted successfully!")
+                else:
+                    print("Note was not deleted.")
+            else:
+                print("Invalid note number.")
+                
+        except ValueError:
+            print("Please enter a number.")
     
     elif choice == "5":
         break
