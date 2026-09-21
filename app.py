@@ -14,7 +14,10 @@ while True:
     print("4. Delete Note")
     print("5. Edit Note")
     print("6. Ask AI")
-    print("7. Exit")
+    print("7. Summarise Notes")
+    print("8. Generate Quiz")
+    print("9. Explain a Note")
+    print("10. Exit")
     
     choice = input("Choose an option: ")\
     
@@ -126,11 +129,66 @@ while True:
         
         print("\n===== AI RESPONSE =====")
         print(answer)
-            
+        
     elif choice == "7":
+        if len(notes_list) == 0:
+            print("There are no notes to summarise.")
+            continue
+        
+        print("\nGenerating your summary...")
+        
+        summary = ai_helper.summarise_notes(notes_list)
+        
+        print("\n===== STUDY SUMMARY =====")
+        print(summary)
+        
+    elif choice == "8":
+        if len(notes_list) == 0:
+            print("There are no notes to create a quiz from.")
+            continue
+        
+        print("\nGenerating your quiz...")
+                    
+        quiz = ai_helper.generate_quiz(notes_list)
+        
+        print("\n===== AI QUIZ =====")
+        print(quiz)
+        
+    elif choice == "9":
+        notes.display_notes(notes_list)
+
+        if len(notes_list) == 0:
+            print("There are no notes to explain.")
+            continue
+
+        try:
+            note_number = int(
+                input("Enter the number of the note you want explained: ")
+            )
+
+            index = note_number - 1
+
+            if 0 <= index < len(notes_list):
+
+                selected_note = notes_list[index]
+
+                print("\nExplaining your note...")
+
+                explanation = ai_helper.explain_note(selected_note)
+
+                print("\n===== AI EXPLANATION =====")
+                print(explanation)
+
+            else:
+                print("Invalid note number.")
+
+        except ValueError:
+            print("Please enter a number.")
+        
+    elif choice == "10":
         break
 
     else:
-        print("Invalid option. Please choose a number from 1 to 7.")
+        print("Invalid option. Please choose a number from 1 to 10.")
         
 print("Goodbye, have a good day!")
