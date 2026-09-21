@@ -1,5 +1,6 @@
 import notes
 import storage
+import ai_helper
 
 print ("Welcome to my AI Study Assistant!")
 
@@ -12,7 +13,8 @@ while True:
     print("3. Search Notes")
     print("4. Delete Note")
     print("5. Edit Note")
-    print("6. Exit")
+    print("6. Ask AI")
+    print("7. Exit")
     
     choice = input("Choose an option: ")\
     
@@ -91,7 +93,7 @@ while True:
                 )
                 
                 content = input(
-                    f"Current concent: {current_note['content']}\n"
+                    f"Current content: {current_note['content']}\n"
                     "New content:"
                 )
                 
@@ -113,11 +115,19 @@ while True:
                 print("Invalid note number.")
         except ValueError:
             print("Please enter a number.")
-            
+    
     elif choice == "6":
+        question = input("\nWhat would you like to ask the AI?")
+        
+        answer = ai_helper.ask_ai(question)
+        
+        print("\n===== AI RESPONSE =====")
+        print(answer)
+            
+    elif choice == "7":
         break
 
     else:
-        print("Invalid option. Please choose 1, 2, 3 or 4.")
+        print("Invalid option. Please choose a number from 1 to 7.")
         
 print("Goodbye, have a good day!")
