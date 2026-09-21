@@ -119,7 +119,10 @@ while True:
     elif choice == "6":
         question = input("\nWhat would you like to ask the AI?")
         
-        answer = ai_helper.ask_ai(question)
+        answer = ai_helper.ask_ai_about_notes(
+            question,
+            notes_list
+        )
         
         print("\n===== AI RESPONSE =====")
         print(answer)
