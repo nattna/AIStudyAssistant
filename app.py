@@ -126,9 +126,9 @@ while True:
             question,
             notes_list
         )
-        
-        print("\n===== AI RESPONSE =====")
-        print(answer)
+        if answer:
+            print("\n===== AI RESPONSE =====")
+            print(answer)
         
     elif choice == "7":
         if len(notes_list) == 0:
@@ -139,8 +139,9 @@ while True:
         
         summary = ai_helper.summarise_notes(notes_list)
         
-        print("\n===== STUDY SUMMARY =====")
-        print(summary)
+        if summary:
+            print("\n===== STUDY SUMMARY =====")
+            print(summary)
         
     elif choice == "8":
         if len(notes_list) == 0:
@@ -151,8 +152,9 @@ while True:
                     
         quiz = ai_helper.generate_quiz(notes_list)
         
-        print("\n===== AI QUIZ =====")
-        print(quiz)
+        if quiz:
+            print("\n===== AI QUIZ =====")
+            print(quiz)
         
     elif choice == "9":
         notes.display_notes(notes_list)
@@ -176,8 +178,9 @@ while True:
 
                 explanation = ai_helper.explain_note(selected_note)
 
-                print("\n===== AI EXPLANATION =====")
-                print(explanation)
+                if explanation:
+                    print("\n===== AI EXPLANATION =====")
+                    print(explanation)
 
             else:
                 print("Invalid note number.")

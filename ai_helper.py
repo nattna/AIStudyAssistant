@@ -6,13 +6,32 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-def ask_ai(question):
-    response = client.responses.create(
-        model="gpt-5-mini",
-        input=question
-    )
+def make_ai_request(prompt):
+    try:
+        response = client.responses.create(
+            model="gpt-5-mini",
+            input=prompt
+        )
 
-    return response.output_text
+        return response.output_text
+
+    except Exception as error:
+        print("\nAI request could not be completed.")
+        print("Please check your API connection or account credits.")
+        print(f"Error: {error}")
+
+        return None
+
+def ask_ai(question):
+    prompt = f"""
+You are a helpful AI study assistant.
+
+Answer the student's question clearly and simply.
+
+Student question:
+{question}
+"""
+    return make_ai_request(prompt)
 
 def ask_ai_about_notes(question, notes_list):
     notes_text = ""
@@ -38,12 +57,7 @@ Student question:
 {question}
 """
 
-    response = client.responses.create(
-        model="gpt-5-mini",
-        input=prompt
-    )
-
-    return response.output_text
+    return make_ai_request(prompt)
 
 def summarise_notes(notes_list):
     notes_text = ""
@@ -70,12 +84,7 @@ Study notes:
 
 {notes_text}
 """
-    response = client.responses.create(
-            model="gpt-5-mini",
-            input=prompt
-        )
-    
-    return response.output_text
+    return make_ai_request(prompt)
 
 def generate_quiz(notes_list):
     notes_text = ""
@@ -100,13 +109,7 @@ Study notes:
 
 {notes_text}
 """
-
-    response = client.responses.create(
-            model="gpt-5-mini",
-            input=prompt
-        )
-    
-    return response.output_text
+    return make_ai_request(prompt)
 
 def explain_note(note):
     prompt = f"""
@@ -126,9 +129,4 @@ Note content:
 {note['content']}
 """
 
-    response = client.responses.create(
-            model="gpt-5-mini",
-            input=prompt
-        )
-    
-    return response.output_text
+    return make_ai_request(prompt)
